@@ -1,0 +1,14 @@
+# Create a conda environment with python 3.6
+conda create -n py36 python=3.6
+
+# Install all requirement libraries using pip
+pip install -r requirement.txt
+
+# run the flask application using the following command
+python3 ./app/main.py
+
+# to build docker image
+docker build --platform linux/amd64 -t azzulhisham/py-eip-linux .  
+
+# push image to docker hub
+docker push azzulhisham/py-eip-linux

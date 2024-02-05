@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: py-vts-linux
+  labels:
+    app: py-vts-linux
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: py-vts-linux
+  template:
+    metadata:
+      labels:
+        app: py-vts-linux
+    spec:
+      containers:
+      - name: py-vts-linux
+        image: azzulhisham/py-vts-linux
+        ports:
+        - containerPort: 3838
+        env:
+        - name: FLASK_ENV
+          value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: py-vts-linux-service
+  labels:
+    app: py-vts-linux
+spec:
+  selector:
+    app: py-vts-linux
+  ports:
+  - name: http
+    protocol: TCP
+    port: 3838
+    targetPort: 3838
+  type: LoadBalancer

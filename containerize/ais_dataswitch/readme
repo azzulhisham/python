@@ -1,0 +1,17 @@
+# this is a UDP server to transit AIS messages from JLM
+
+
+
+# # run the application locally using the following command
+# python ./ais_dataswitch.py
+
+# # to build docker image
+# docker build --platform linux/amd64 -t azzulhisham/py-ais-dataswitch-linux .  
+
+# # to run the docker image
+# docker run -p 3336:3336 azzulhisham/py-ais-dataswitch-linux
+
+# # push image to docker hub
+# docker push azzulhisham/py-ais-dataswitch-linux
+
+

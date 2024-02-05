@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: py-eip-linux
+  labels:
+    app: py-eip-linux
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: py-eip-linux
+  template:
+    metadata:
+      labels:
+        app: py-eip-linux
+    spec:
+      containers:
+      - name: py-eip-linux
+        image: azzulhisham/py-eip-linux
+        ports:
+        - containerPort: 3838
+        env:
+        - name: FLASK_ENV
+          value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: py-eip-linux-service
+  labels:
+    app: py-eip-linux
+spec:
+  selector:
+    app: py-eip-linux
+  ports:
+  - name: http
+    protocol: TCP
+    port: 3838
+    targetPort: 3838
+  type: LoadBalancer

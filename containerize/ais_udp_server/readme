@@ -1,0 +1,15 @@
+# this is a UDP server to transit AIS messages from JLM
+
+
+
+# # run the application locally using the following command
+# python ./ais_udpServer.py
+
+# # to build docker image
+# docker build --platform linux/amd64 -t azzulhisham/py-aisudpserver-linux .  
+
+# # to run the docker image
+# docker run -p 10000:10000 azzulhisham/py-ais-aisudpserver-linux
+
+# # push image to docker hub
+# docker push azzulhisham/py-aisudpserver-linux

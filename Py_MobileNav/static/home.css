@@ -1,0 +1,188 @@
+body { 
+    margin: 0; 
+    padding: 0; 
+}
+
+#map { 
+    position: absolute; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0; 
+    bottom: 0; 
+    width: 100%; 
+    z-index: -1;
+}
+
+.mapboxgl-popup-content {
+  color: #3c3c3c;
+  /* background: #beb6ff;
+  border-color: #645d91;
+  box-shadow: 3px 3px 2px #d9d9d9; */
+}
+
+.mapboxgl-popup-content h4 {
+    margin: 0;
+    padding: 0;
+}
+
+#marker-blue {
+    background-image: url("/static/image-blue.svg");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }  
+
+  #marker-green {
+    background-image:  url("/static/image-green.svg");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  } 
+
+  #marker-red {
+    background-image:  url("/static/image-red.svg");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  } 
+
+
+/********************
+  Radical popup menu
+*********************/
+/* nav {
+    position: absolute;
+    top: 280px;
+    right: 300px;
+} */
+
+nav .nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-content .toggle-btn,
+.nav-content span {
+  height: 30px;
+  width: 30px;
+  background-color: #343533;
+  color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-content .toggle-btn {
+  z-index: 1000;
+  cursor: pointer;
+  transform: rotate(225deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.nav-content .toggle-btn.open {
+  transform: rotate(0deg);
+}
+
+.nav-content span {
+  position: absolute;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+  z-index: 1001;
+}
+
+nav.open .nav-content span {
+  transform: rotate(calc(var(--i) * (360deg/12))) translateY(80px);
+  opacity: 1;
+}
+
+.nav-content span i {
+  transform: rotate(calc(var(--i) * (360deg/ -12)));
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.nav-content span:hover i {
+  opacity: 1;
+}
+
+.nav-content span:hover {
+  box-shadow: 0px 0px 30px rgba(255,255,255,1.0);
+}
+
+
+/* vessel info panel */
+.vessel-info {
+  position: absolute;
+  left: -300px;
+  top: 20px;
+  color: orange;
+  width: 300px;
+  height: 90vh;
+  background-color: #343533;
+  border-radius: 10px;
+  padding: 20px;
+  opacity: 0;
+  transition: 0.6s all;
+
+}
+
+.vessel-info h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.close-icon {
+  display: flex;
+  justify-content: flex-end;
+  font-size: x-small;
+}
+
+.close-icon:hover {
+  cursor: pointer;
+}
+
+.vessel-info img {
+  position: relative;
+  width: 300px;
+  image-rendering: auto;
+  margin-top: 8px;
+}
+
+.detail-info {
+  margin-top: 30px;
+  background-color: #404140;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.detail-info div {
+  margin: 8px;
+}
+
+.detail-info span {
+  font-size: small
+}
+
+.detail-info label {
+  font-size: small;
+  display: inline-block;
+  width: 100px;
+}
+
+.vessel-info.open {
+  opacity: 1;
+  transform: translateX(330px);
+}
+

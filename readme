@@ -1,0 +1,23 @@
+# Start the data ingress server 
+# python3 ./ingress/ais_ingressServer.py
+
+# Start the playback server 
+# pip install crate
+# pip install geojson
+# pip install clickhouse-connect
+# python3 ./ingress/socket_server.py
+
+# AIS decoder - NMEA Parser
+# python3 ais_nmeaParserSocket.py
+
+# WebSocket (realtime monitoring) : tcp -> websocket
+# python3 ais_webSocketServer.py
+
+# WebSocket (dashboard) : tcp -> websocket
+# python3 ais_webSocketServerDb.py
+
+# WebSocket NMEA Server : tcp -> nmea parser -> websocket
+# python3 ais_webSocketNmeaServer.py
+
+# Web App
+# python3 MobileNav.py
